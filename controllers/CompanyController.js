@@ -1,16 +1,32 @@
 const Company = require('../modules/Company')
 
+
 // get all
 const index = (req, res, next) => {
-  Company.find().then(response => {
-    res.json({
-      response
-    })
-  }).catch(err => {
-    res.json({
-      message: 'an Error with the Company Controller'
-    })
-  })
+  if (req.query.page && req.query.limit) {
+    Company.paginate({}, { page: req.query.page, limit: req.query.limit })
+      .then(response => {
+        res.json({
+          response
+        })
+      }).catch(err => {
+        res.json({
+          message: `can't get all() of company list with error ${err}`
+        })
+      })
+  } else {
+    Company.find()
+      .then(response => {
+        res.json({
+          response
+        })
+      }).catch(err => {
+        res.json({
+          message: `can't get all() of company list with error ${err}`
+        })
+      })
+  }
+
 }
 
 // getById
@@ -36,7 +52,7 @@ const store = (req, res, next) => {
     phone: req.body.phone,
     email: req.body.email
   })
-  if(req.file) {
+  if (req.file) {
     company.logo = req.file.path
   }
   company.save().then(response => {
