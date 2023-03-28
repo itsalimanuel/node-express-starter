@@ -37,4 +37,4 @@ app.listen(PORT, () => {
 
 app.use('/api/company', CompanyRouter)
 app.use('/api/user', AuthRouter)
-app.use('/api/order')
+app.use('/api/order', OrderRouter)

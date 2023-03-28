@@ -13,6 +13,10 @@ const orderSchema = new Schema({
   },
   message: {
     type: String
+  },
+  user_Id: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
   }
 })
 

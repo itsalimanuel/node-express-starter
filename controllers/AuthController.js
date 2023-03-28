@@ -2,6 +2,20 @@ const User = require('../modules/User')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
+// index
+const index = (req, res, next) => {
+  User.find()
+    .then(response => {
+      res.json({
+        response
+      })
+    }).catch(err => {
+      res.json({
+        message: `can't get all() of users list with error ${err}`
+      })
+    })
+}
+// register
 const register = (req, res, next) => {
   bcrypt.hash(req.body.password, 10, function (err, hashedPass) {
     if (err) {
@@ -26,9 +40,7 @@ const register = (req, res, next) => {
     })
   })
 }
-
 // login
-
 const login = (req, res, next) => {
   let username = req.body.username
   let password = req.body.password
@@ -63,5 +75,6 @@ const login = (req, res, next) => {
 
 module.exports = {
   register,
-  login
+  login,
+  index
 }
