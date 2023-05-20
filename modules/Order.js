@@ -17,6 +17,9 @@ const orderSchema = new Schema({
   user_Id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
+  },
+  status: {
+    type: Boolean
   }
 })
 

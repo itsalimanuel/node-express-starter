@@ -9,4 +9,5 @@ router.post('/check', AuthController.checkUserExistsByEmail)
 router.get('/userInfo', AuthController.getUserByEmail)
 router.post('/logout', AuthController.logout)
 router.put('/update/:id', AuthController.updateUser)
+
 module.exports = router

@@ -74,7 +74,8 @@ const store = (req, res, next) => {
     email: req.body.email,
     phone: req.body.phone,
     message: req.body.message,
-    user_Id: req.body.user_Id
+    user_Id: req.body.user_Id,
+    status: false,
   })
   order.save().then(response => {
     res.json({
