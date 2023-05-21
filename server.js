@@ -6,6 +6,7 @@ const bodyParser = require('body-parser')
 const CompanyRouter = require('./routes/company')
 const AuthRouter = require('./routes/auth')
 const OrderRouter = require('./routes/order')
+const Subscribe = require('./routes/subscribe')
 
 mongoose.connect('mongodb+srv://quickchat:aloshe752@cluster0.tthwtvt.mongodb.net/quickchat', {
 })
@@ -38,3 +39,4 @@ app.listen(PORT, () => {
 app.use('/api/company', CompanyRouter)
 app.use('/api/user', AuthRouter)
 app.use('/api/order', OrderRouter)
+app.use('/api/subscribe', Subscribe)
