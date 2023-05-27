@@ -28,23 +28,20 @@ const index = (req, res, next) => {
       });
   }
 };
-
 const store = (req, res, next) => {
   let subscribe = new Subscribe({
     email: req.body.email,
-  });
-  subscribe.save().then((response) => {
-    res
-      .json({
-        message: `Sent`,
-      })
-      .catch((err) => {
-        res.json({
-          message: `error ${err}`,
-        });
-      });
-  });
-};
+  })
+  subscribe.save().then(response => {
+    res.json({
+      message: 'email has beed sent!'
+    })
+  }).catch(err => {
+    res.json({
+      message: 'error with send a message/order'
+    })
+  })
+}
 
 module.exports = {
   index,

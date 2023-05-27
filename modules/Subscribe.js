@@ -8,4 +8,4 @@ const subscribeSchema = new Schema({
 });
 
 const Subscribe = mongoose.model("Subscribe", subscribeSchema);
-module.exports = Subscribe
+module.exports = Subscribe;
