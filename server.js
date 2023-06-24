@@ -8,7 +8,7 @@ const AuthRouter = require('./routes/auth')
 const OrderRouter = require('./routes/order')
 const Subscribe = require('./routes/subscribe')
 
-mongoose.connect('mongodb+srv://quickchat:aloshe752@cluster0.tthwtvt.mongodb.net/quickchat', {
+mongoose.connect('MONGO_DB_URL', {
 })
 const database = mongoose.connection
 
